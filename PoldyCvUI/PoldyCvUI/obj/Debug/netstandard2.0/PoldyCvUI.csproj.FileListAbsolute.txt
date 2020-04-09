@@ -160,3 +160,7 @@ C:\PoldyProjects\PoldyCvUI\PoldyCvUI\PoldyCvUI\obj\Debug\netstandard2.0\Razor\Sh
 C:\PoldyProjects\PoldyCvUI\PoldyCvUI\PoldyCvUI\obj\Debug\netstandard2.0\Razor\Shared\MyApplies.razor.g.cs
 C:\PoldyProjects\PoldyCvUI\PoldyCvUI\PoldyCvUI\obj\Debug\netstandard2.0\Razor\Shared\PersonContent.razor.g.cs
 C:\PoldyProjects\PoldyCvUI\PoldyCvUI\PoldyCvUI\obj\Debug\netstandard2.0\Razor\Shared\PersonNav.razor.g.cs
+C:\PoldyProjects\PoldyCvUI\PoldyCvUI\PoldyCvUI\obj\Debug\netstandard2.0\RazorDeclaration\Pages\ForgetPassword.razor.g.cs
+C:\PoldyProjects\PoldyCvUI\PoldyCvUI\PoldyCvUI\obj\Debug\netstandard2.0\RazorDeclaration\Pages\ResetPassword.razor.g.cs
+C:\PoldyProjects\PoldyCvUI\PoldyCvUI\PoldyCvUI\obj\Debug\netstandard2.0\Razor\Pages\ForgetPassword.razor.g.cs
+C:\PoldyProjects\PoldyCvUI\PoldyCvUI\PoldyCvUI\obj\Debug\netstandard2.0\Razor\Pages\ResetPassword.razor.g.cs
