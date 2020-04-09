@@ -1,21 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\PoldyProjects\\PoldyCvUI\\PoldyCvUI\\PoldyCvUI\\PoldyCvUI.csproj": {}
+    "C:\\PoldyProjects\\PoldyCvUI2\\PoldyCvUI\\PoldyCvUI\\PoldyCvUI.csproj": {}
   },
   "projects": {
-    "C:\\PoldyProjects\\PoldyCvUI\\PoldyCvUI\\PoldyCvUI\\PoldyCvUI.csproj": {
+    "C:\\PoldyProjects\\PoldyCvUI2\\PoldyCvUI\\PoldyCvUI\\PoldyCvUI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\PoldyProjects\\PoldyCvUI\\PoldyCvUI\\PoldyCvUI\\PoldyCvUI.csproj",
+        "projectUniqueName": "C:\\PoldyProjects\\PoldyCvUI2\\PoldyCvUI\\PoldyCvUI\\PoldyCvUI.csproj",
         "projectName": "PoldyCvUI",
-        "projectPath": "C:\\PoldyProjects\\PoldyCvUI\\PoldyCvUI\\PoldyCvUI\\PoldyCvUI.csproj",
-        "packagesPath": "C:\\Users\\retat\\.nuget\\packages\\",
-        "outputPath": "C:\\PoldyProjects\\PoldyCvUI\\PoldyCvUI\\PoldyCvUI\\obj\\",
+        "projectPath": "C:\\PoldyProjects\\PoldyCvUI2\\PoldyCvUI\\PoldyCvUI\\PoldyCvUI.csproj",
+        "packagesPath": "C:\\Users\\ademk\\.nuget\\packages\\",
+        "outputPath": "C:\\PoldyProjects\\PoldyCvUI2\\PoldyCvUI\\PoldyCvUI\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\"
+        ],
         "configFilePaths": [
-          "C:\\Users\\retat\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\ademk\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netstandard2.0"
