@@ -1,0 +1,97 @@
+﻿@page "/person"
+
+
+<div class="container-fluid">
+    <!--summary info-->
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card bg-light mb-3">
+                <div class="card-body" style="background-image: linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12);">
+                    <h5 class="card-title" style="font-weight: bold; color: white">396</h5>
+                    <p class="card-text" style="color: white">Toplam Açık Pozisyon</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-8">
+            <div class="card bg-light mb-3">
+                <div class="card-body" style="background-image: linear-gradient(to right top, #44074f, #3b377b, #1b5c9e, #0080b6, #00a3c5);">
+                    <p class="card-text" style="font-weight: bold; color: white">Aşağıdaki seçeneklerden sana uygun olanını seçtikten sonra, başvurunu ön yazınla birlikte hızlıca gönderebilirsin.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row ">
+
+        <div class="col-sm-6 col-md-4">
+            <!-- DATA TABLE-->
+            <div class="table-responsive m-b-40">
+                <table class="table">
+                    <thead class="thead-dark">
+                    <tr>
+                        <th>Departman</th>
+                        <th>Kontenjan</th>
+
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>Arge</td>
+                        <td>2</td>
+
+                    </tr>
+                    <tr>
+                        <td>Yazılım</td>
+                        <td>4</td>
+
+                    </tr>
+                    <tr>
+                        <td>Halkla İlişkiler</td>
+                        <td>1</td>
+
+                    </tr>
+                    <tr>
+                        <td>Yönetim</td>
+                        <td>1</td>
+
+                    </tr>
+                    <tr>
+                        <td>Yönetim</td>
+                        <td>1</td>
+
+                    </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="row col-md-8">
+            <div class="col-md-5">
+                <select name="select" id="select" class="form-control" required="">
+                    <option value="" disabled selected hidden>Departman</option>
+                    <option value="1">Arge</option>
+                    <option value="2">Yazılım</option>
+                    <option value="3">Halkla İlişkiler</option>
+                    <option value="4">Yönetim</option>
+                </select>
+            </div>
+            <div class="col-md-5">
+                <select name="select" id="select" class="form-control" required="">
+                    <option value="" disabled selected hidden>Ünvan</option>
+                    <option value="1">Yazılım mühendisi</option>
+                    <option value="2">UI Designer</option>
+                    <option value="3">UX Designer</option>
+                    <option value="4">İnsan Kaynakları Müdürü</option>
+                </select>
+            </div>
+            <div class="col-md">
+                <input class="btn btn-info " type="button" value="Başvur">
+            </div>
+            <div class="col-12 col-md">
+                <textarea name="textarea-input" id="textarea-input" rows="9" placeholder="Ön yazı..." class="form-control"></textarea>
+            </div>
+        </div>
+    </div>
+</div>
+@code {
+
+}

@@ -1,0 +1,63 @@
+﻿@page "/my-applies"
+
+<style>
+    .confirmed {
+        color: green;
+    }
+    .denied {
+        color: red;
+    }
+</style>
+
+<div class="container-fluid">
+        <h3>
+            <i class="far fa-thumbs-up"></i>
+            Mülakat Tavsiyeleri
+        </h3> <br>
+        <div class="row">
+            <iframe class="col-md-7" width="auto" height="500" src="https://www.youtube.com/embed/x5BA83s8YAY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+            <div class="col-md-5">
+                <!-- DATA TABLE-->
+                <div class="table-responsive m-b-40">
+                    <table class="table">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th>Departman</th>
+                                <th>Ünvan</th>
+                                <th>Durum</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Arge</td>
+                                <td>Mühendis</td>
+                                <td class="denied">Reddedildi</td>
+
+                            </tr>
+                            <tr>
+                                <td>Yazılım</td>
+                                <td>Programcı</td>
+                                <td class="confirmed">Onaylandı</td>
+
+                            </tr>
+                            <tr>
+                                <td>Kıraathane</td>
+                                <td>Çaycı</td>
+                                <td class="confirmed">Hemen gel başla</td>
+
+                            </tr>
+
+
+                        </tbody>
+                    </table>
+                </div>
+                <!-- END DATA TABLE-->
+            </div>
+        </div>
+    </div>
+
+@code {
+
+}
