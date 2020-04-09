@@ -2,6 +2,20 @@
   "version": 3,
   "targets": {
     ".NETStandard,Version=v2.0": {
+      "Blazor.Extensions.Storage/1.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Components.Web": "3.0.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/Blazor.Extensions.Storage.JS.dll": {},
+          "lib/netstandard2.0/Blazor.Extensions.Storage.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Blazor.Extensions.Storage.JS.dll": {},
+          "lib/netstandard2.0/Blazor.Extensions.Storage.dll": {}
+        }
+      },
       "Microsoft.AspNetCore.Authorization/3.1.0-preview2.19528.8": {
         "type": "package",
         "dependencies": {
@@ -336,6 +350,20 @@
     }
   },
   "libraries": {
+    "Blazor.Extensions.Storage/1.0.0": {
+      "sha512": "jCHiySrIdL2m/8VTB4Tm7TGpwYAa2/yO5xCZb6egJvUkmp72wTS38CRY9gZQYyMiD05EhtlRgtAYCl4GF9FY0A==",
+      "type": "package",
+      "path": "blazor.extensions.storage/1.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "blazor.extensions.storage.1.0.0.nupkg.sha512",
+        "blazor.extensions.storage.nuspec",
+        "lib/netstandard2.0/Blazor.Extensions.Storage.JS.dll",
+        "lib/netstandard2.0/Blazor.Extensions.Storage.dll",
+        "lib/netstandard2.0/Blazor.Extensions.Storage.pdb"
+      ]
+    },
     "Microsoft.AspNetCore.Authorization/3.1.0-preview2.19528.8": {
       "sha512": "89So+LP2dO0HkceujfNG5gb46pcsPnzeHCTN0g/YsjSa1U/AM07FZCH6IisaFw+G8Ln8G8mpE/LzHnhsx0W3zg==",
       "type": "package",
@@ -1450,6 +1478,7 @@
   },
   "projectFileDependencyGroups": {
     ".NETStandard,Version=v2.0": [
+      "Blazor.Extensions.Storage >= 1.0.0",
       "Microsoft.AspNetCore.Blazor >= 3.1.0-preview2.19528.8",
       "Microsoft.AspNetCore.Blazor.Build >= 3.1.0-preview2.19528.8",
       "Microsoft.AspNetCore.Blazor.DevServer >= 3.1.0-preview2.19528.8",
@@ -1499,6 +1528,10 @@
     "frameworks": {
       "netstandard2.0": {
         "dependencies": {
+          "Blazor.Extensions.Storage": {
+            "target": "Package",
+            "version": "[1.0.0, )"
+          },
           "Microsoft.AspNetCore.Blazor": {
             "target": "Package",
             "version": "[3.1.0-preview2.19528.8, )"

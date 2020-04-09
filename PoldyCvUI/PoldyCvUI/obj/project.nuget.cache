@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "topyuaPdeWBpxU+IZtd8IT383ghYR6OsmW8AKRbdTTT8g1QPWOWdOuFZKuBudTgL43g7LeFbfC1n1hXCbQ3NHw==",
+  "dgSpecHash": "FhZyEgBav3JLG8hiUD9WE1NgPJmp4JFGKA2VaEjU2qBLWhLO/LYmHv4pO58+9ZwSBNML5k6tnOcRIv9IKoqBUg==",
   "success": true,
   "projectFilePath": "C:\\PoldyProjects\\PoldyCvUI\\PoldyCvUI\\PoldyCvUI\\PoldyCvUI.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\ademk\\.nuget\\packages\\blazor.extensions.storage\\1.0.0\\blazor.extensions.storage.1.0.0.nupkg.sha512",
     "C:\\Users\\ademk\\.nuget\\packages\\microsoft.aspnetcore.authorization\\3.1.0-preview2.19528.8\\microsoft.aspnetcore.authorization.3.1.0-preview2.19528.8.nupkg.sha512",
     "C:\\Users\\ademk\\.nuget\\packages\\microsoft.aspnetcore.blazor\\3.1.0-preview2.19528.8\\microsoft.aspnetcore.blazor.3.1.0-preview2.19528.8.nupkg.sha512",
     "C:\\Users\\ademk\\.nuget\\packages\\microsoft.aspnetcore.blazor.build\\3.1.0-preview2.19528.8\\microsoft.aspnetcore.blazor.build.3.1.0-preview2.19528.8.nupkg.sha512",
