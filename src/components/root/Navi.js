@@ -11,7 +11,7 @@ import {
 import { Link } from "react-router-dom";
 
 
-class NavbarAdmin extends React.Component {
+class Navi extends React.Component {
   AuthNavi() {
     return (
       <Navbar color="light" light expand="md">
@@ -61,4 +61,4 @@ class NavbarAdmin extends React.Component {
   }
 }
 
-export default NavbarAdmin;
+export default Navi;

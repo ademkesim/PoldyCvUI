@@ -4,7 +4,7 @@ import { Route, Switch } from "react-router-dom";
 import Login from "./components/auth/Login";
 import Admin from "./components/admin/index";
 import User from "./components/user/index";
-import Navbar from "./components/auth/NavbarAdmin";
+import Navi from "./components/root/Navi";
 import Register from "./components/auth/Register";
 
 function validation() {
@@ -20,7 +20,7 @@ function validation() {
 function App() {
   return (
     <Container>
-      <Navbar />
+      <Navi />
       <Switch>
         <Route path="/register" component={Register} />
         <Route path="/" component={validation()} />
