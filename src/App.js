@@ -5,24 +5,26 @@ import Login from "./components/auth/Login";
 import Admin from "./components/admin/index";
 import User from "./components/user/index";
 import Navbar from "./components/auth/NavbarAdmin";
+import Register from "./components/auth/Register";
+
+function validation() {
+  if (localStorage.getItem("rank") === "true") {
+    return Admin;
+  } else if (localStorage.getItem("rank") === "false") {
+    return User;
+  } else {
+    return Login;
+  }
+}
 
 function App() {
-  if (!localStorage.getItem("jwtToken")) {
-    return (
-      <Container>
-        <Navbar />
-        <Switch>
-          <Route path="/login" exact component={Login} />
-          <Route path="/"  exact component={Login} />
-        </Switch>
-      </Container>
-    );
-  }
   return (
     <Container>
+      <Navbar />
       <Switch>
-        <Route path="/admin" component={Admin} />
-        <Route path="/" component={User} />
+        <Route path="/register" component={Register} />
+        <Route path="/" component={validation()} />
+        <Route component={Register} />
       </Switch>
     </Container>
   );
