@@ -47,7 +47,6 @@ class Navi extends React.Component {
 
 
   render() {
-    
       if (localStorage.getItem("rank")==="true") {
         return this.AdminNavi();
       }
@@ -57,7 +56,6 @@ class Navi extends React.Component {
       else{
         return this.AuthNavi();
       }
-
   }
 }
 
