@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { loginUser } from "../../redux/actions/authAcions";
+import { registerUser } from "../../redux/actions/authAcions";
 import {
   Container,
   Col,
@@ -10,25 +10,28 @@ import {
   Input,
   Button,
 } from "reactstrap";
-
-
-class Login extends Component {
+class AddAdmin extends Component {
   constructor() {
     super();
     this.state = {
-      email: "",
+      mail: "",
       password: "",
+      firstName: "",
+      lastName: "",
     };
   }
-  
+
   onSubmit = (e) => {
     e.preventDefault();
     const userData = {
-      email: this.state.email,
+      mail: this.state.mail,
       password: this.state.password,
+      firstName: this.state.firstName,
+      lastName: this.state.lastName,
+      rank: true,
     };
-    this.props.loginUser(userData,this.props.history);
-  }
+    this.props.registerUser(userData, this.props.history)
+  };
 
   onChange = (e) => {
     this.setState({ [e.target.name]: e.target.value });
@@ -39,20 +42,40 @@ class Login extends Component {
       <Container className="App">
         <br />
         <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <h2>Sign In</h2>
+        <h2>Admin Kullanıcı Ekle</h2>
         <Form className="form" onSubmit={this.onSubmit}>
           <Col>
             <FormGroup>
               <Label>Email</Label>
               <Input
-                type="text"
+                type="email"
                 placeholder="Username"
-                name="email"
-                value={this.state.email}
+                name="mail"
+                value={this.state.mail}
+                onChange={this.onChange}
+              />
+            </FormGroup>
+          </Col>
+          <Col>
+            <FormGroup>
+              <Label>First Name</Label>
+              <Input
+                type="text"
+                placeholder="First Name"
+                name="firstName"
+                value={this.state.firstName}
+                onChange={this.onChange}
+              />
+            </FormGroup>
+          </Col>
+          <Col>
+            <FormGroup>
+              <Label>Last Name</Label>
+              <Input
+                type="text"
+                placeholder="Last Name"
+                name="lastName"
+                value={this.state.lastName}
                 onChange={this.onChange}
               />
             </FormGroup>
@@ -69,10 +92,8 @@ class Login extends Component {
               />
             </FormGroup>
           </Col>
-            <Button color="success">Giriş Yap</Button>
-          
+          <Button color="success">Submit</Button>
         </Form>
-        
       </Container>
     );
   }
@@ -80,4 +101,4 @@ class Login extends Component {
 const mapStateToProps = (state) => ({
   auth: state.auth,
 });
-export default connect(mapStateToProps, { loginUser })(Login);
+export default connect(mapStateToProps, { registerUser })(AddAdmin);

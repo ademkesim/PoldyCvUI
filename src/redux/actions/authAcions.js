@@ -1,29 +1,29 @@
 import axios from "axios";
 import setAuthToken from "../../utils/setAuthToken";
-import jwt_decode from "jwt-decode";
 import { SET_CURRENT_USER } from "./actionTypes";
+import alertifiy from "alertifyjs";
 
-export const registerUser = (userData, history) =>(dispatch)=> {
+export const registerUser = (userData, history) => (dispatch) => {
   axios
     .post("https://localhost:5001/api/auto/register", userData)
-    .then((res) => history.push("/login"))
+    .then((res) => history.push("/"))
+    .then(alertifiy.success("Kullanıcı Oluşturuldu"))
     .catch((err) => console.log(err));
 };
 
-export const loginUser = (userData,history) => (dispatch) => {
+export const loginUser = (userData, history) => (dispatch) => {
   axios
     .post("https://localhost:5001/api/auto/login", userData)
     .then((res) => {
       const token = res.data.token;
       localStorage.setItem("jwtToken", res.data.token);
-      localStorage.setItem("rank",res.data.person.rank);
+      localStorage.setItem("rank", res.data.person.rank);
       setAuthToken(token);
-      const decoded = jwt_decode(token);
-      dispatch(setCurrentUser(decoded));
-      history.push("/");
-      window.location.reload();
+      dispatch(setCurrentUser(res.data.person));
     })
-    .catch((err) => console.log(err));
+    .catch(res => {
+    alertifiy.error("Giriş Başarısız");}
+    );
 };
 
 export const setCurrentUser = (decoded) => {

@@ -10,7 +10,7 @@ import {
 } from "reactstrap";
 import { Link } from "react-router-dom";
 import AdminNavi from './AdminNavi';
-
+import { connect } from "react-redux";
 
 
 class Navi extends React.Component {
@@ -39,7 +39,10 @@ class Navi extends React.Component {
  
   AdminNavi(){
     const items = [
-      { name: 'home', label: 'Home' ,to:"/"},
+      {},
+      { name: 'home', label: 'Anasayfa' ,to:"/"},
+      { name:'added-admin',label:'Admin Ekle',to:"/add-admin"},
+      { name:'applies',label:'Başvurular',to:"/applies"},
     ]
     return (
       <AdminNavi items={items}/>
@@ -50,14 +53,18 @@ class Navi extends React.Component {
   }
 
   render() {
-    if (localStorage.getItem("rank") === "true") {
-      return this.AdminNavi(this.props);
-    } else if (localStorage.getItem("rank") === "false") {
+    if (this.props.auth.user.rank === true) {
+      return this.AdminNavi();
+    } else if (this.props.auth.user.rank === false) {
       return this.UserNavi();
     } else {
       return this.AuthNavi();
     }
   }
 }
-
-export default Navi;
+function mapStateToProps(state) {
+  return {
+    auth: state.auth,
+  };
+}
+export default connect(mapStateToProps)(Navi);
