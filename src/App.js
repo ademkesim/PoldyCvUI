@@ -1,11 +1,11 @@
 import React from "react";
-import { Container } from "reactstrap";
 import { Route, Switch } from "react-router-dom";
 import Login from "./components/auth/Login";
 import Admin from "./components/admin/index";
 import User from "./components/user/index";
-import Navi from "./components/root/Navi";
 import Register from "./components/auth/Register";
+import Navi from "./components/root/Navi";
+import { Row, Col } from "reactstrap";
 
 function validation() {
   if (localStorage.getItem("rank") === "true") {
@@ -19,14 +19,22 @@ function validation() {
 
 function App() {
   return (
-    <Container>
-      <Navi />
-      <Switch>
-        <Route path="/register" component={Register} />
-        <Route path="/" component={validation()} />
-        <Route component={Register} />
-      </Switch>
-    </Container>
+    <div>
+      <Row>
+        <Col xs="2">
+          <br/>
+          <Navi />
+        </Col>
+        <Col xs="9">
+          <br/>
+          <Switch>
+            <Route path="/register" component={Register} />
+            <Route path="/" component={validation()} />
+            <Route component={Register} />
+          </Switch>
+        </Col>
+      </Row>
+    </div>
   );
 }
 

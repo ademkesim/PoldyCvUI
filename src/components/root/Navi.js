@@ -9,6 +9,8 @@ import {
   NavLink,
 } from "reactstrap";
 import { Link } from "react-router-dom";
+import AdminNavi from './AdminNavi';
+
 
 
 class Navi extends React.Component {
@@ -34,28 +36,27 @@ class Navi extends React.Component {
       </Navbar>
     );
   }
+ 
   AdminNavi(){
-    return(
-      <div></div>
+    const items = [
+      { name: 'home', label: 'Home' ,to:"/"},
+    ]
+    return (
+      <AdminNavi items={items}/>
     );
+  };
+  UserNavi() {
+    return <div></div>;
   }
-  UserNavi(){
-    return(
-      <div></div>
-    );
-  }
-
 
   render() {
-      if (localStorage.getItem("rank")==="true") {
-        return this.AdminNavi();
-      }
-      else if(localStorage.getItem("rank")==="false"){
-        return this.UserNavi();
-      }
-      else{
-        return this.AuthNavi();
-      }
+    if (localStorage.getItem("rank") === "true") {
+      return this.AdminNavi(this.props);
+    } else if (localStorage.getItem("rank") === "false") {
+      return this.UserNavi();
+    } else {
+      return this.AuthNavi();
+    }
   }
 }
 

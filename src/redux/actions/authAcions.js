@@ -5,14 +5,14 @@ import { SET_CURRENT_USER } from "./actionTypes";
 
 export const registerUser = (userData, history) =>(dispatch)=> {
   axios
-    .post("https://localhost:44340/api/auto/register", userData)
+    .post("https://localhost:5001/api/auto/register", userData)
     .then((res) => history.push("/login"))
     .catch((err) => console.log(err));
 };
 
 export const loginUser = (userData,history) => (dispatch) => {
   axios
-    .post("https://localhost:44340/api/auto/login", userData)
+    .post("https://localhost:5001/api/auto/login", userData)
     .then((res) => {
       const token = res.data.token;
       localStorage.setItem("jwtToken", res.data.token);
