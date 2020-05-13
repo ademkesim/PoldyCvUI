@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import * as applyActions from "../../redux/actions/applyActions";
 import * as departmentActions from "../../redux/actions/departmentActions";
+import * as titleActions from "../../redux/actions/titleActions";
 import { bindActionCreators } from "redux";
 import {
   Badge,
@@ -10,9 +11,10 @@ import {
   DropdownItem,
   DropdownMenu,
   DropdownToggle,
+  Button,
 } from "reactstrap";
 
-const AppliesButton = ({ tittle, Objects=[],selectDepartment }) => {
+const AppliesButton = ({ tittle, Objects = [], selectApply }) => {
   const [dropdownOpen, setOpen] = React.useState(false);
 
   const toggle = () => setOpen(!dropdownOpen);
@@ -26,7 +28,10 @@ const AppliesButton = ({ tittle, Objects=[],selectDepartment }) => {
       <DropdownMenu>
         {Objects.map((Object) => (
           <tr>
-            <DropdownItem onClick={()=>selectDepartment(Object)}>{Object.name}</DropdownItem>
+            <DropdownItem onClick={() => selectApply(Object)} key={Object.departmentId}>
+              {Object.name}
+              {Object.titleName}
+            </DropdownItem>
             <DropdownItem divider />
           </tr>
         ))}
@@ -36,26 +41,28 @@ const AppliesButton = ({ tittle, Objects=[],selectDepartment }) => {
 };
 class ApplyList extends Component {
   componentDidMount() {
+    this.props.actions.getTitles();
     this.props.actions.getApplies();
     this.props.actions.getDepartments();
   }
 
   selectDepartment = (department) => {
     this.props.actions.getApplies(department.departmentId);
+    this.props.actions.getTitles(department.departmentId);
   };
 
   render() {
-    var dep = [];
-    this.props.departments.map(
-      (department) => (dep[department.departmentId] = department.name)
-    );
     return (
       <div>
         <h3>
           <Badge color="warning">Applies</Badge>
         </h3>
-        <AppliesButton tittle="Departman Filtrele" Objects={this.props.departments} selectDepartment={this.selectDepartment} />
-        <AppliesButton tittle="Ünvan Filtrele" />
+        <AppliesButton
+          tittle="Departman Filtrele"
+          Objects={this.props.departments}
+          selectApply={this.selectDepartment}
+        />
+        <AppliesButton tittle="Ünvan Filtrele" Objects={this.props.titles} />
         <Table>
           <thead>
             <tr>
@@ -70,7 +77,27 @@ class ApplyList extends Component {
           <tbody>
             {this.props.applies.map((apply) => (
               <tr key={apply.applyId}>
+                <th>{apply.applyId}</th>
+                {this.props.departments
+                  .filter(
+                    (department) =>
+                      department.departmentId === apply.departmentId
+                  )
+                  .map((department) => (
+                    <th scope="row">{department.name}</th>
+                  ))}
+                {this.props.titles
+                  .filter((title) => title.titleId === apply.titleId)
+                  .map((title) => (
+                    <th scope="row">
+                      {title.titleName}
+                      {console.log(title.titleName)}
+                    </th>
+                  ))}
                 <th scope="row">{apply.detail}</th>
+                <th>
+                  <Button color="success">Cv İncele</Button>
+                </th>
               </tr>
             ))}
           </tbody>
@@ -84,6 +111,7 @@ function mapStateToProps(state) {
   return {
     applies: state.applyListReducer,
     departments: state.departmentListReducer,
+    titles: state.titleListReducer,
   };
 }
 
@@ -95,6 +123,7 @@ function mapDispatchToProps(dispatch) {
         departmentActions.getDepartments,
         dispatch
       ),
+      getTitles: bindActionCreators(titleActions.getTitles, dispatch),
     },
   };
 }
