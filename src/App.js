@@ -7,6 +7,7 @@ import { Row, Col } from "reactstrap";
 import AddAdmin from "./components/admin/AddAdmin";
 import Dashboard from "./components/root/Dashboard";
 import ApplyList from "./components/admin/ApplyList";
+import AddCv from "./components/user/AddCv";
 
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
         </Col>
         <Col xs="8">
           <Switch>
+            <Route path="/addcv" component={AddCv} />
             <Route path="/register" component={Register} />
             <Route path="/add-admin" component={AddAdmin} />
             <Route path="/admin" component={Admin} />

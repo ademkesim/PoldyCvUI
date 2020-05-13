@@ -8,7 +8,7 @@ const rootReducer = combineReducers({
   auth: authReducer,
   applyListReducer,
   departmentListReducer,
-  titleListReducer
+  titleListReducer,
 });
 
 export default rootReducer;
