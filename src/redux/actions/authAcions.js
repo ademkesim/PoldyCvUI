@@ -5,7 +5,7 @@ import alertifiy from "alertifyjs";
 
 export const registerUser = (userData, history) => (dispatch) => {
   axios
-    .post("https://localhost:5001/api/auto/register", userData)
+    .post("https://localhost:44340/api/auto/register", userData)
     .then((res) => history.push("/"))
     .then(alertifiy.success("Kullanıcı Oluşturuldu"))
     .catch((err) => console.log(err));
@@ -13,7 +13,7 @@ export const registerUser = (userData, history) => (dispatch) => {
 
 export const loginUser = (userData, history) => (dispatch) => {
   axios
-    .post("https://localhost:5001/api/auto/login", userData)
+    .post("https://localhost:44340/api/auto/login", userData)
     .then((res) => {
       const token = res.data.token;
       localStorage.setItem("jwtToken", res.data.token);
