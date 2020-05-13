@@ -11,6 +11,7 @@ import {
 import { Link } from "react-router-dom";
 import AdminNavi from './AdminNavi';
 import { connect } from "react-redux";
+import UserNavi from "./UserNavi";
 
 
 class Navi extends React.Component {
@@ -48,8 +49,17 @@ class Navi extends React.Component {
       <AdminNavi items={items}/>
     );
   };
+
   UserNavi() {
-    return <div></div>;
+    const items = [
+      {},
+      { name: 'home', label: 'Anasayfa' ,to:"/"},
+      { name:'addcv',label:'Cv Ekle',to:"/addcv"},
+     
+    ]
+    return (
+      <UserNavi items={items}/>
+    );
   }
 
   render() {

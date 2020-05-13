@@ -1,4 +1,5 @@
 export default {
-    applies:[]
+    applies:[],
+    cv:{}
   };
   
