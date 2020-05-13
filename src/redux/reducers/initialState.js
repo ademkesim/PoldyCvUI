@@ -1,4 +1,4 @@
 export default {
-    applies:[]
-  };
-  
+  applies: [],
+  departments: [],
+};

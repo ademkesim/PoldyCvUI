@@ -2,10 +2,11 @@ import axios from "axios";
 import setAuthToken from "../../utils/setAuthToken";
 import { SET_CURRENT_USER } from "./actionTypes";
 import alertifiy from "alertifyjs";
+import { url } from "../../url";
 
 export const registerUser = (userData, history) => (dispatch) => {
   axios
-    .post("https://localhost:5001/api/auto/register", userData)
+    .post(url+"/auto/register", userData)
     .then((res) => history.push("/"))
     .then(alertifiy.success("Kullanıcı Oluşturuldu"))
     .catch((err) => console.log(err));
@@ -13,7 +14,7 @@ export const registerUser = (userData, history) => (dispatch) => {
 
 export const loginUser = (userData, history) => (dispatch) => {
   axios
-    .post("https://localhost:5001/api/auto/login", userData)
+    .post(url+"/auto/login", userData)
     .then((res) => {
       const token = res.data.token;
       localStorage.setItem("jwtToken", res.data.token);
