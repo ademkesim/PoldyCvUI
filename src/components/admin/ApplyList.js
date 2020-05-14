@@ -13,6 +13,7 @@ import {
   DropdownToggle,
   Button,
 } from "reactstrap";
+import { Link } from "react-router-dom";
 
 const AppliesButton = ({ tittle, Objects = [], selectApply }) => {
   const [dropdownOpen, setOpen] = React.useState(false);
@@ -28,7 +29,10 @@ const AppliesButton = ({ tittle, Objects = [], selectApply }) => {
       <DropdownMenu>
         {Objects.map((Object) => (
           <tr>
-            <DropdownItem onClick={() => selectApply(Object)} key={Object.departmentId}>
+            <DropdownItem
+              onClick={() => selectApply(Object)}
+              key={Object.departmentId}
+            >
               {Object.name}
               {Object.titleName}
             </DropdownItem>
@@ -96,7 +100,9 @@ class ApplyList extends Component {
                   ))}
                 <th scope="row">{apply.detail}</th>
                 <th>
-                  <Button color="success">Cv İncele</Button>
+                  <Link to={"/cv-detail/"+apply.personID}>
+                    <Button color="success" >Cv İncele</Button>
+                  </Link>
                 </th>
               </tr>
             ))}

@@ -8,6 +8,7 @@ import AddAdmin from "./components/admin/AddAdmin";
 import Dashboard from "./components/root/Dashboard";
 import ApplyList from "./components/admin/ApplyList";
 import AddCv from "./components/user/AddCv";
+import cvDetail from "./components/admin/cvDetail";
 
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
             <Route path="/add-admin" component={AddAdmin} />
             <Route path="/admin" component={Admin} />
             <Route path="/applies" component={ApplyList} />
+            <Route path="/cv-detail/:personId" component={cvDetail} />
             <Route path="/" component={Dashboard} />
             <Route component={Register} />
           </Switch>
