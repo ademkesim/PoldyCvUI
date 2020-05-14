@@ -1,5 +1,6 @@
 import * as actionTypes from "./actionTypes";
 import alertifiy from "alertifyjs";
+import * as ur from '../../url';
 
 export function createCvSuccess(userCv) {
   return {
@@ -10,9 +11,9 @@ export function createCvSuccess(userCv) {
 
 export  function userAddCv(userCv, userId) {
   return function (dispatch) {
-    let url = "https://localhost:5001/api/CurriculumVitae/add";
+    let url = ur.url
     if (userId) {
-      url = url + "?id=" + userId;
+      url = url + "/api/CurriculumVitae/add?id=" + userId;
     }
     console.log(userCv)
     debugger
@@ -20,7 +21,7 @@ export  function userAddCv(userCv, userId) {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(userCv)
-    }).then(response=>dispatch(createCvSuccess(response))).then(res=>alertifiy.success("Kayıt alındı")).catch(err=>errorHandler(err))
+    }).then(response=>dispatch(createCvSuccess(response))).catch(err=>errorHandler(err))
   }
 }
 
