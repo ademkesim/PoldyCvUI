@@ -7,8 +7,10 @@ import { Row, Col } from "reactstrap";
 import AddAdmin from "./components/admin/AddAdmin";
 import Dashboard from "./components/root/Dashboard";
 import ApplyList from "./components/admin/ApplyList";
+import Applyid from "./components/user/ApplyList";
 import AddCv from "./components/user/AddCv";
 import cvDetail from "./components/admin/cvDetail";
+import AddOrUpdateApply from "./components/user/AddOrUpdateApply";
 
 
 function App() {
@@ -24,7 +26,10 @@ function App() {
             <Route path="/register" component={Register} />
             <Route path="/add-admin" component={AddAdmin} />
             <Route path="/admin" component={Admin} />
+            <Route path="/add-apply/:applyId" component={AddOrUpdateApply} />
+            <Route path="/add-apply" component={AddOrUpdateApply} />
             <Route path="/applies" component={ApplyList} />
+            <Route path="/applyid" component={Applyid} />
             <Route path="/cv-detail/:personId" component={cvDetail} />
             <Route path="/" component={Dashboard} />
             <Route component={Register} />

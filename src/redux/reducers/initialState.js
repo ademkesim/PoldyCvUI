@@ -2,5 +2,6 @@ export default {
   applies: [],
   departments: [],
   titles: [],
-  cv:{},
+  cv: {},
+  apply: {},
 };
