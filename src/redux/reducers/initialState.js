@@ -4,4 +4,5 @@ export default {
   titles: [],
   cv: {},
   apply: {},
+  department:{},
 };

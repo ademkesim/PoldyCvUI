@@ -5,111 +5,110 @@ import * as applyActions from "../../redux/actions/applyActions";
 import * as departmentActions from "../../redux/actions/departmentActions";
 import * as titleActions from "../../redux/actions/titleActions";
 import * as cvActions from "../../redux/actions/cvActions";
-import TextInput from '../toolbox/TextInput';
-import SelectInput from '../toolbox/SelectInput';
-import {
-    Container,
-    Col,
-    Form,
-    Button,
-  } from "reactstrap";
+import TextInput from "../toolbox/TextInput";
+import SelectInput from "../toolbox/SelectInput";
+import { Container, Col, Form, Button } from "reactstrap";
 class AddOrUpdateApply extends Component {
-    constructor() {
-        super();
-        this.state = {
-          detail:"",
-          departmentName: "",
-          titleName: "",
-        };
-      }
+  constructor() {
+    super();
+    this.state = {
+      detail:"",
+      departmentName: "",
+      titleName: "",
+    };
+  }
   onChange = (e) => {
     this.setState({ [e.target.name]: e.target.value });
   };
   onSubmit = (e) => {
     e.preventDefault();
-    const apply = {
+    var apply = {
       personId: this.props.auth.user.personId,
-      titleId: this.props.department.name>0?this.props.department.name:this.state.titleId,
-      departmentId: this.props.title.titleName>0?this.props.title.titleName:this.state.departmentId,
+      titleId: parseInt(this.state.titleName),
+      departmentId: parseInt(this.state.departmentName),
       detail: this.state.detail,
       pdf: this.props.cv.cvPdf,
+      JobAdvertisementID: 1,
     };
-    if (this.props.match.params.applyId) {
-      this.props.updateApply(apply);
-    } else {
-      this.props.addApply(apply);
+    this.props.actions.addApply(apply);
+    if (this.props.match.params.applyId > 0) {
+      apply = {
+        applyId: parseInt(this.props.match.params.applyId),
+        personId: this.props.auth.user.personId,
+        titleId: parseInt(this.props.apply.titleId),
+        departmentId: parseInt(this.props.apply.departmentId),
+        detail: this.state.detail,
+        JobAdvertisementID: 1,
+      };
+      this.props.actions.updateApply(apply);
     }
+    
   };
-  GetByDepartments(departmentId) {
-    const department = this.props.departments.filter(
-      (department) => department.departmentId === departmentId
-    );
-    return department[0];
-  }
-  GetByTitle(titleId) {
-    const title = this.props.titles.filter(
-      (title) => title.titleId == titleId
-    );
-    return title[0];
-  }
-  a(){
-    this.props.actions.getByApply(this.props.match.params.applyId);
-
-    this.props.actions.getCv(this.props.auth.user.personId)
-  }
   componentDidMount() {
     this.props.actions.getByApply(this.props.match.params.applyId);
-    this.GetByTitle(this.props.apply.titleId)
-    this.GetByDepartments(this.props.apply.departmentId);
-    this.props.actions.getCv(this.props.auth.user.personId)
-  }
-  Update(){
-      this.state.detail=this.props.apply.detail;
-      this.state.departmentName = this.GetByDepartments(this.props.apply.departmentId);
-      this.state.titleName=this.GetByTitle(this.props.apply.titleId);
+    this.props.actions.getCv(this.props.auth.user.personId);
+    
   }
   render() {
-      if(this.props.match.params.applyId>0){
-        this.Update()
-      }
     return (
-        <Container className="App">
-          <br />
-          <br />
-          <h2> {this.props.match.params.applyId>0?"Güncelle":"Ekle"}</h2>
-          <Form className="form" onSubmit={this.onSubmit}>
-              <Col>
-              <TextInput
+      <Container className="App">
+        <br />
+        <br />
+        <h2> {this.props.match.params.applyId > 0 ? "Güncelle" : "Ekle"}</h2>
+        <Form className="form" onSubmit={this.onSubmit}>
+          <Col>
+            <TextInput
               name="detail"
               label="Detaylar"
               onChange={this.onChange}
               placeHolder="Detayları Giriniz"
               value={this.state.detail}
-              />
-              </Col>
-              <Col>
-              {console.log()}
-              
-              </Col>
-            <Button color="success">Kaydet</Button>
-          </Form>
-        </Container>
-      );
+            />
+          </Col>
+          <Col hidden={this.props.match.params.applyId > 0 ?true:false}>
+            <SelectInput
+              name="departmentName"
+              label="Departman"
+              value={
+                this.state.departmentName > 0 ? this.state.departmentName : ""
+              }
+              defaultOption="Seçiniz"
+              options={this.props.departments.map((department) => ({
+                value: department.departmentId,
+                text: department.name,
+              }))}
+              onChange={this.onChange}
+            />
+          </Col>
+          <Col hidden={this.props.match.params.applyId > 0 ?true:false}>
+            <SelectInput
+              name="titleName"
+              label="Ünvan"
+              value={this.state.titleName > 0 ? this.state.titleName : ""}
+              defaultOption="Seçiniz"
+              options={this.props.titles.map((title) => ({
+                value: title.titleId,
+                text: title.titleName,
+              }))}
+              onChange={this.onChange}
+            />
+          </Col>
+            <h6>{this.state.departmentId}</h6>
+          
+          <Button color="success">Kaydet</Button>
+        </Form>
+      </Container>
+    );
   }
 }
 
 function mapStateToProps(state, ownProps) {
-    const applyId = ownProps.match.params.applyId;
-    const apply =
-      applyId && state.applyReducer.length > 0
-        ? this.props.actions.getByApply(this.props.match.params.applyId)
-        : {};
   return {
     apply: state.applyReducer,
     departments: state.departmentListReducer,
     titles: state.titleListReducer,
     auth: state.auth,
-    cv: state.cvListReducer
+    cv: state.cvListReducer,
   };
 }
 
@@ -117,6 +116,8 @@ function mapDispatchToProps(dispatch) {
   return {
     actions: {
       getByApply: bindActionCreators(applyActions.getByApply, dispatch),
+      addApply: bindActionCreators(applyActions.addApply, dispatch),
+      updateApply: bindActionCreators(applyActions.updateApply, dispatch),
       getDepartments: bindActionCreators(
         departmentActions.getDepartments,
         dispatch

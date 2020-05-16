@@ -10,9 +10,9 @@ import { Link } from "react-router-dom";
 
 class ApplyList extends Component {
   componentDidMount() {
-    this.props.actions.getTitles(this.props.apply.titleId);
     this.props.actions.getByIdApply(this.props.auth.user.personId);
-    this.props.actions.getDepartments(this.props.apply.departmentId);
+    this.props.actions.getDepartments();
+    this.props.actions.getTitles();
   }
   deleteApply(apply){
     this.props.actions.getByIdApply(this.props.auth.user.personId);
@@ -20,29 +20,32 @@ class ApplyList extends Component {
     this.props.actions.getByIdApply(this.props.auth.user.personId);
     alertify.success("Başarıyla silindi");
   }
+  departmentComparison(id,id2){
+    var name={
+      departman : this.props.department.map(dep=>dep.departmentId===id?dep.name:""),
+      title : this.props.titles.map(title=>title.titleId===id2?title.titleName:""),
+    }
+    return name
+  }
   render() {
+    
     return (
       <Table>
         <thead>
           <tr>
             <th>Detay</th>
-            <th>Ünvan Ad</th>
             <th>Departman Ad</th>
+            <th>Ünvan Ad</th>
             <th></th>
             <th></th>
           </tr>
         </thead>
-        {console.log(this.props.apply[0])}
         <tbody>
           {this.props.apply.map((apply) => (
             <tr key={apply.applyId}>
               <th>{apply.detail}</th>
-              {this.props.departments.map((department) => (
-                <td>{department.name}</td>
-              ))}
-              {this.props.apply.map((apply) => (
-                <td>{apply.titleName}</td>
-              ))}
+                <td>{this.departmentComparison(apply.departmentId).departman}</td>
+                <td>{this.departmentComparison(apply.departmentId,apply.titleId).title}</td>
               <td>
                 <Link to={"/add-apply/"+apply.applyId}><Button color="success">Güncelle</Button></Link>
               </td>
@@ -61,7 +64,7 @@ class ApplyList extends Component {
 function mapStateToProps(state) {
   return {
     apply: state.applyListReducer,
-    departments: state.departmentListReducer,
+    department: state.departmentListReducer,
     titles: state.titleListReducer,
     auth: state.auth,
   };
