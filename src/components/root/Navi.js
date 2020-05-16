@@ -56,6 +56,7 @@ class Navi extends React.Component {
       { name: 'home', label: 'Anasayfa' ,to:"/"},
       { name:'addcv',label:'Cv Ekle',to:"/addcv"},
       { name:'applyidlist',label:'Başvurularım',to:"/applyid"},
+      { name: 'addapply', label:"Başvuru Oluştur",to:"/add-apply"}
     ]
     return (
       <UserNavi items={items}/>
