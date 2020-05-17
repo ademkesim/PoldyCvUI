@@ -9,19 +9,20 @@ export function createCvSuccess(userCv) {
   };
 }
 
-export  function userAddCv(userCv, userId) {
+export  function userAddCv(userCv) {
   return function (dispatch) {
     let url = ur.url
-    if (userId) {
-      url = url + "/api/CurriculumVitae/add?id=" + userId;
-    }
+    url = url + "/CurriculumVitae/add";
     console.log(userCv)
+    console.log(JSON.stringify(userCv))
     debugger
     return fetch(url, {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(userCv)
-    }).then(response=>dispatch(createCvSuccess(response))).catch(err=>errorHandler(err))
+    }).then(response=>dispatch(createCvSuccess(response)))
+    .then(alertifiy.success("Cv Başarıyla oluşturuldu!"))
+    .catch(err=>console.log(err))
   }
 }
 

@@ -32,20 +32,20 @@ class AddCv extends Component {
       mail: "",
       foreignLanguage: "",
       foreignLanguageLevel: "",
-      competencens: "",
-      refrence: "",
+      competences: "",
+      reference: "",
     };
   }
 
   onSubmit = (e) => {
     e.preventDefault();
     const userData = {
-      personID:2006,//USER GİRİŞ YAPTIĞINDA GİRİŞ YAPAN USER'IN ID BURAYA GELECEK
+      personID:this.props.auth.user.personId,
       firstName: this.state.firstName,
       lastName: this.state.lastName,
       birthofDate: this.state.birthofDate,
       placeOfBirth: this.state.placeOfBirth,
-      maritalStatus: this.state.maritalStatus,
+      maritalStatus: JSON.parse(this.state.maritalStatus),
       educationStatus: this.state.educationStatus,
       school: this.state.school,
       schoolStart: this.state.schoolStart,
@@ -55,11 +55,11 @@ class AddCv extends Component {
       mail: this.state.mail,
       foreignLanguage: this.state.foreignLanguage,
       foreignLanguageLevel: this.state.foreignLanguageLevel,
-      competencens: this.state.competencens,
-      refrence: this.state.refrence,
+      competences: this.state.competences,
+      reference: this.state.reference,
     };
     
-    this.props.action.userAddCv(userData,1);//burada ki bir id değerini test etmek için verdim 
+    this.props.action.userAddCv(userData);//burada ki bir id değerini test etmek için verdim 
   };
 
   onChange = (e) => {
@@ -155,7 +155,7 @@ class AddCv extends Component {
                       value={this.state.maritalStatus}
                       onChange={this.onChange}
                     >
-                      <option value="">Evli misiniz ?</option>
+                      <option>Evli misiniz ?</option>
                       <option value="true">Evet</option>
                       <option value="false">Hayır</option>
                     </CustomInput>
@@ -335,17 +335,17 @@ class AddCv extends Component {
                 <Col>
                   <FormGroup>
                     <Label
-                      name="competencens"
-                      htmlFor="competencens"
-                      id="competencens"
+                      name="competences"
+                      htmlFor="competences"
+                      id="competences"
                     >
                       Yetkinlikler
                     </Label>
                     <Input
-                      name="competencens"
+                      name="competences"
                       type="textarea"
                       placeholder="Yetenek ve Özellikleriniz "
-                      htmlFor="competencens"
+                      htmlFor="competences"
                       value={this.state.competencens}
                       onChange={this.onChange}
                     />
@@ -355,15 +355,15 @@ class AddCv extends Component {
 
                 <Col>
                   <FormGroup>
-                    <Label name="refrence" htmlFor="refrence" id="refrence">
+                    <Label name="reference" htmlFor="reference" id="reference">
                       Referanslarınız
                     </Label>
                     <Input
-                      name="refrence"
+                      name="reference"
                       type="textarea"
                       placeholder="Referenslarınız ve iletişim bilgileri "
-                      htmlFor="refrence"
-                      value={this.state.refrence}
+                      htmlFor="reference"
+                      value={this.state.reference}
                       onChange={this.onChange}
                     />
                   </FormGroup>
@@ -382,7 +382,7 @@ class AddCv extends Component {
 
 function mapStateToProps(state) {
   return {
-    userCv: state.userAddCvReducer,
+    auth: state.auth,
   };
 }
 function mapDispatchToProps(dispatch) {
