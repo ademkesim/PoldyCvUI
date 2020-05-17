@@ -1,7 +1,6 @@
 import * as actionTypes from "./actionTypes";
 import * as ur from "../../url";
 import axios from "axios";
-import alertify from "alertifyjs";
 export function getAppliesSuccess(applies) {
   return { type: actionTypes.GET_APPLIES_SUCCESS, payload: applies };
 }
@@ -56,7 +55,6 @@ export function addApply(apply) {
 export function updateApply(apply) {
   return function (dispatch) {
     var url = ur.url + "/Apply/update";
-    debugger
     axios.post(url,apply)
       .catch((error)=>console.log(error));
   };

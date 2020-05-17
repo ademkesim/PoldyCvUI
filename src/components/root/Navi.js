@@ -44,6 +44,8 @@ class Navi extends React.Component {
       { name: 'home', label: 'Anasayfa' ,to:"/"},
       { name:'added-admin',label:'Admin Ekle',to:"/add-admin"},
       { name:'applies',label:'Başvurular',to:"/applies"},
+      { name:'added-department',label:'Departman Ekle',to:"/add-department"},
+      { name:'added-title',label:'Ünvan Ekle',to:"/add-title"},
     ]
     return (
       <AdminNavi items={items}/>

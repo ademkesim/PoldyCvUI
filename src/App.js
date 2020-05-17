@@ -10,8 +10,9 @@ import ApplyList from "./components/admin/ApplyList";
 import Applyid from "./components/user/ApplyList";
 import AddCv from "./components/user/AddCv";
 import cvDetail from "./components/admin/cvDetail";
+import AddDepartment from "./components/admin/AddDepartment";
 import AddOrUpdateApply from "./components/user/AddOrUpdateApply";
-
+import AddTitle from "./components/admin/AddTitle";
 
 function App() {
   return (
@@ -30,6 +31,8 @@ function App() {
             <Route path="/add-apply" component={AddOrUpdateApply} />
             <Route path="/applies" component={ApplyList} />
             <Route path="/applyid" component={Applyid} />
+            <Route path="/add-department" component={AddDepartment} />
+            <Route path="/add-title" component={AddTitle} />
             <Route path="/cv-detail/:personId" component={cvDetail} />
             <Route path="/" component={Dashboard} />
             <Route component={Register} />

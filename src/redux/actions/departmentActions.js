@@ -1,5 +1,7 @@
 import * as actionTypes from "./actionTypes";
 import * as ur from '../../url';
+import axios from "axios";
+import alertify from 'alertifyjs';
 export function getDepartmentsSuccess(products) {
   return { type: actionTypes.GET_DEPARTMENTS_SUCCESS, payload: products };
 }
@@ -22,4 +24,14 @@ export function getByDepartment(departmanId){
     .then((response)=>response.json())
     .then((result)=>dispatch(getByDepartmentsSuccess(result)));
   };
+}
+export function AddDepartment(departman){
+  return function (dispatch){
+    var url = ur.url + "/Department/add";
+    debugger
+    axios
+    .post(url,departman)
+    .then(alertify.success("Departman Başarıyla Eklendi"))
+    .catch(err=>console.log(err))
+  }
 }
