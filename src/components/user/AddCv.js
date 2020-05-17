@@ -72,6 +72,9 @@ class AddCv extends Component {
         <br />
         <br />
         <br />
+        <br/>
+      <br/>
+     
         <h3>Cv Bilgilerinizi Doldurun</h3>
         <Container className="App">
           <Row>

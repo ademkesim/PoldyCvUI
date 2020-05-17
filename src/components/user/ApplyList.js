@@ -30,6 +30,11 @@ class ApplyList extends Component {
   render() {
     
     return (
+      <div>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
       <Table>
         <thead>
           <tr>
@@ -57,6 +62,7 @@ class ApplyList extends Component {
           ))}
         </tbody>
       </Table>
+      </div>
     );
   }
 }

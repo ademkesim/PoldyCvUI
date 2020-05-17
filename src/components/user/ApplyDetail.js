@@ -5,6 +5,18 @@ import SelectInput from "../toolbox/SelectInput";
 const ApplyDetail = ({ applies, apply, onSave, onChange}) => {
   return (
     <form onSubmit={onSave}>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
       <h2>{apply.applyId ? "Güncelle" : "Ekle"}</h2>
       
       <SelectInput

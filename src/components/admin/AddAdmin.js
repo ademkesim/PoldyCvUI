@@ -42,6 +42,8 @@ class AddAdmin extends Component {
       <Container className="App">
         <br />
         <br />
+        <br />
+        <br />
         <h2>Admin Kullanıcı Ekle</h2>
         <Form className="form" onSubmit={this.onSubmit}>
           <Col>

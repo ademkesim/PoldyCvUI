@@ -54,6 +54,8 @@ class AddOrUpdateApply extends Component {
       <Container className="App">
         <br />
         <br />
+        <br />
+        <br />
         <h2> {this.props.match.params.applyId > 0 ? "Güncelle" : "Ekle"}</h2>
         <Form className="form" onSubmit={this.onSubmit}>
           <Col>

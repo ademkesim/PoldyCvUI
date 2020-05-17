@@ -21,6 +21,7 @@ const AppliesButton = ({ tittle, Objects = [], selectApply }) => {
   const toggle = () => setOpen(!dropdownOpen);
 
   return (
+    
     <ButtonDropdown isOpen={dropdownOpen} toggle={toggle}>
       <DropdownToggle caret color="primary">
         {tittle}
@@ -58,6 +59,10 @@ class ApplyList extends Component {
   render() {
     return (
       <div>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
         <h3>
           <Badge color="warning">Applies</Badge>
         </h3>
