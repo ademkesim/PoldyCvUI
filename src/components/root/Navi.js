@@ -56,15 +56,13 @@ class Navi extends React.Component {
   AdminNavi() {
     const items = [
       {},
-      { name: "home", label: "Anasayfa", to: "/" },
-      { name: "added-admin", label: "Admin Ekle", to: "/add-admin" },
-      { name: "applies", label: "Başvurular", to: "/applies" },
-      {
-        name: "added-department",
-        label: "Departman Ekle",
-        to: "/add-department",
-      },
-      { name: "added-title", label: "Ünvan Ekle", to: "/add-title" },
+      { name: 'home', label: 'Anasayfa', to: "/" },
+      { name: 'added-admin', label: 'Admin Ekle', to: "/add-admin" },
+      { name: 'applies', label: 'Başvurular', to: "/applies" },
+      { name: 'added-department', label: 'Departman Ekle', to: "/add-department" },
+      { name: 'added-title', label: 'Ünvan Ekle', to: "/add-title" },
+      { name: 'get-department', label: 'Departmanları Listele ', to: "/get-department" },
+      {name: 'get-title', label: 'Ünvanları Listele ', to: "/get-title"}
     ];
     return <AdminNavi items={items} />;
   }
